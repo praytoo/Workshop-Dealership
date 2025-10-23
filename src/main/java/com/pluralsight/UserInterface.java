@@ -156,7 +156,7 @@ public class UserInterface {
         System.out.println("Price: ");
         double price = getDoubleInput();
 
-        Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color,mileage, price);
+        Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, mileage, price);
         dealership.addVehicle(newVehicle);
 
         new DealershipFileManager().saveDealership(dealership);
