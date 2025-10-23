@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class UserInterface {
     private Dealership dealership;
 
-    public UserInterface() {}
+    public UserInterface() {
+    }
 
     public void display() {
         init();
@@ -36,37 +37,48 @@ public class UserInterface {
         dealership = fileManager.getDealership();
     }
 
-    private void displayMenu(){
+    private void displayMenu() {
         System.out.println("""
-            1 - Find vehicles within a price range
-            2 - Find vehicles by make / model
-            3 - Find vehicles by year range
-            4 - Find vehicles by color
-            5 - Find vehicles by mileage range
-            6 - Find vehicles by type
-            7 - List ALL vehicles
-            8 - Add a vehicle
-            9 - Remove a vehicle
-            99 - Quit
-            """);
+                1 - Find vehicles within a price range
+                2 - Find vehicles by make / model
+                3 - Find vehicles by year range
+                4 - Find vehicles by color
+                5 - Find vehicles by mileage range
+                6 - Find vehicles by type
+                7 - List ALL vehicles
+                8 - Add a vehicle
+                9 - Remove a vehicle
+                99 - Quit
+                """);
     }
-    public void processGetByPriceRequest() {}
 
-    public void processByMakeModelRequest() {}
+    public void processGetByPriceRequest() {
+    }
 
-    public void processGetByYearRequest() {}
+    public void processByMakeModelRequest() {
+    }
 
-    public void processGetByColorRequest () {}
+    public void processGetByYearRequest() {
+    }
 
-    public void processGetByMileageRequest(){}
+    public void processGetByColorRequest() {
+    }
 
-    public void processGetByVehicleTypeRequest() {}
+    public void processGetByMileageRequest() {
+    }
 
-    public void processGetAllVehiclesRequest() {}
+    public void processGetByVehicleTypeRequest() {
+    }
 
-    public void processAddVehicleRequest() {}
+    public void processGetAllVehiclesRequest() {
+    }
 
-    public void processRemoveVehicleRequest() {}
+    public void processAddVehicleRequest() {
+    }
 
-    private void displayVehicles(ArrayList<Vehicle> vehicles) { }
+    public void processRemoveVehicleRequest() {
+    }
+
+    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+    }
 }

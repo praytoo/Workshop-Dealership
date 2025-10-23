@@ -3,7 +3,7 @@ package com.pluralsight;
 import java.io.*;
 
 public class DealershipFileManager {
-    private static final String FILE_NAME = "inventory.csv";
+    private static final String FILE_NAME = "C:\\User\\Student\\pluralsight\\Workshop-Dealership\\inventory.csv";
 
     public Dealership getDealership() {
         Dealership dealership = null;
@@ -46,17 +46,18 @@ public class DealershipFileManager {
         }
         return dealership;
     }
-        public void saveDealership(Dealership dealership){
-            try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
-                writer.printf("%s|%s|%s%n", dealership.getName(), dealership.getAddress(), dealership.getPhone());
 
-                for (Vehicle v : dealership.getAllVehicles()) {
-                    writer.printf("%d|%d|%s|%s|%s|%s|%d|%.2f%n",
-                            v.getVin(), v.getYear(), v.getMake(), v.getModel(),
-                            v.getVehicleType(), v.getColor(), v.getOdometer(), v.getPrice());
-                }
+    public void saveDealership(Dealership dealership) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
+            writer.printf("%s|%s|%s%n", dealership.getName(), dealership.getAddress(), dealership.getPhone());
 
-            } catch (IOException e) {
+            for (Vehicle v : dealership.getAllVehicles()) {
+                writer.printf("%d|%d|%s|%s|%s|%s|%d|%.2f%n",
+                        v.getVin(), v.getYear(), v.getMake(), v.getModel(),
+                        v.getVehicleType(), v.getColor(), v.getOdometer(), v.getPrice());
+            }
+
+        } catch (IOException e) {
             System.out.println("Error writing file: " + e.getMessage());
         }
 
