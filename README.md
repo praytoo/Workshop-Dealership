@@ -100,8 +100,3 @@ It uses simple yet effective filtering logic to dynamically search vehicles by r
 
 Prince Haywood
 📍 Playa Vista, California
-
-
-
-
-
