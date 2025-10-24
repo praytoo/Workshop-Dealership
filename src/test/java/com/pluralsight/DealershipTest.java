@@ -2,13 +2,14 @@ package com.pluralsight;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.tree.VariableHeightLayoutCache;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@DisplayName("Dealership methods test")
 class DealershipTest {
 
     private Dealership dealership;
@@ -23,13 +24,14 @@ class DealershipTest {
         dealership = new Dealership(name, address, phone, allVehicles);
     }
     @Test
+    @DisplayName("Get Dealership Name")
     void getName() {
         //arrange
         String name = "D & B Used Cars";
         //act
         String result = dealership.getName();
         //assert
-        assertEquals(name, result);
+        assertEquals(name, result, "oops not the same!");
     }
 
     @Test
