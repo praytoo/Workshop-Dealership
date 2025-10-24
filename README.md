@@ -63,15 +63,15 @@ D & B Used Cars|111 Old Benbrook Rd|817-555-5555
    ```bash
    git clone https://github.com/yourusername/car-dealership.git
    cd car-dealership
-
-
 ---
 
 ## 🖼️ Screenshots
-
-[homescreen homescreen.png]
-[vehicle display vehicledisplay.png]
-[failed input failedinput.png]
+Homescreen:
+![homescreen](images/homescreen.png)
+Vehicle Display:
+![vehicledisplay](images/vehicleDisplay.png)
+Failed Input:
+![failed input](images/failedInput.png)
 
 ---
 
@@ -91,8 +91,8 @@ It uses simple yet effective filtering logic to dynamically search vehicles by r
 ---
 
 ## 🧪 Test Reports
-[testreports testreports1.png]
-[testreports testreports2.png]
+![testreports](images/testreports1.png)
+![testreports](images/testreports2.png)
 
 ---
 
