@@ -15,6 +15,7 @@ Data is stored in a simple `inventory.csv` file.
 - [Screenshots](#screenshots)
 - [Interesting Code Snippet](#interesting-code-snippet)
 - [Test Reports](#test-reports)
+- [Tech Stack](#-tech-stack)
 - [Author](#author)
 
 ---
@@ -94,6 +95,12 @@ It uses simple yet effective filtering logic to dynamically search vehicles by r
 ![testreports](images/testreports1.png)
 ![testreports](images/testreports2.png)
 
+---
+## 🧰 Tech Stack
+- Java 17 ☕
+- Maven 3.9+
+- JUnit 5 (for testing)
+- IntelliJ IDEA (development)
 ---
 
 ## 👨‍💻 Author
