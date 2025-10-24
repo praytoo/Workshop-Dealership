@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Dealership {
@@ -44,7 +45,7 @@ public class Dealership {
         inventory.remove(vehicle);
     }
 
-    public Dealership(String name, String address, String phone) {
+    public Dealership(String name, String address, String phone, ArrayList<Vehicle> vehicles) {
         this.name = name;
         this.address = address;
         this.phone = phone;

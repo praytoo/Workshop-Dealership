@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class DealershipFileManager {
     private static final String FILE_NAME = "C:\\User\\Student\\pluralsight\\Workshop-Dealership\\inventory.csv";
@@ -19,7 +20,8 @@ public class DealershipFileManager {
             String address = dealershipInfo[1];
             String phone = dealershipInfo[2];
 
-            dealership = new Dealership(name, address, phone);
+            ArrayList<Vehicle> vehicles = new ArrayList<>();
+            dealership = new Dealership(name, address, phone, vehicles);
 
             String line;
             while ((line = br.readLine()) != null) {

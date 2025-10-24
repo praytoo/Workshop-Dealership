@@ -185,7 +185,7 @@ public class UserInterface {
         }
     }
 
-    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+    public void displayVehicles(ArrayList<Vehicle> vehicles) {
         if (vehicles == null || vehicles.isEmpty()) {
             System.out.println("No vehicles found");
             return;
