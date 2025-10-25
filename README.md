@@ -87,7 +87,7 @@ public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
 }
 ```
 Why it's interesting:
-It uses simple yet effective filtering logic to dynamically search vehicles by range.
+It uses simple yet effective filtering logic to dynamically search vehicles by price range.
 
 ---
 
