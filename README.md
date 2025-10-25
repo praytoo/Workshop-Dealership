@@ -92,8 +92,8 @@ It uses simple yet effective filtering logic to dynamically search vehicles by r
 ---
 
 ## 🧪 Test Reports
-![testreports](images/testreports1.png)
-![testreports](images/testreports2.png)
+![testreports](images/testReports1.png)
+![testreports](images/testReports2.png)
 
 ---
 ## 🧰 Tech Stack
