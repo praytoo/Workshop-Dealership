@@ -75,9 +75,9 @@ public class SalesContract extends Contract {
         if (!financeOption) {
             monthlyPayment = 0;
         } else if (totalPrice >= 10000) {
-            monthlyPayment = (0.425 * totalPrice) / 48;
+            monthlyPayment = (1.425 * totalPrice) / 48;
         } else if (totalPrice < 10000) {
-            monthlyPayment = (0.525 * totalPrice) / 24;
+            monthlyPayment = (1.525 * totalPrice) / 24;
         }
         return monthlyPayment;
     }
