@@ -37,12 +37,12 @@ public class LeaseContract extends Contract{
     @Override
     public double getTotalPrice() {
         totalPrice = (vehiclePrice / 2) + (vehiclePrice * 0.07);
-        return 0;
+        return totalPrice;
     }
 
     @Override
     public double getMonthlyPayment() {
-        monthlyPayment = (0.04 * totalPrice) / 36;
-        return -1;
+        monthlyPayment = (1.04 * totalPrice) / 36;
+        return monthlyPayment;
     }
 }

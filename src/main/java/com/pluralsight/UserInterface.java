@@ -249,7 +249,6 @@ public class UserInterface {
             salesContract.setOdometer(scanner.nextInt());
             System.out.println("Enter how much you paid for the vehicle: ");
             salesContract.setVehiclePrice(scanner.nextDouble());
-            salesContract1.setVehiclePrice(vehiclePrice);
             System.out.println("Enter sales tax info (5% or .05): ");
             salesContract.setSalesTaxAmount(scanner.nextDouble());
             System.out.println("Enter recording fee amount ($100): ");
@@ -269,45 +268,43 @@ public class UserInterface {
 
             System.out.println("Vehicle sale added successfully!");
         } else {
-            System.out.println("Enter the date: ");
-            String date2 = scanner.nextLine();
-            System.out.println("Enter your name: ");
-            String name2 = scanner.nextLine();
-            System.out.println("Enter your email: ");
-            String email2 = scanner.nextLine();
-            System.out.println("Enter vehicle VIN: ");
-            int vin2 = Integer.parseInt(scanner.nextLine());
-            System.out.println("Enter vehicle Year: ");
-            int year2 = Integer.parseInt(scanner.nextLine());
-            System.out.println("Enter vehicle Make: ");
-            String make2 = scanner.nextLine();
-            System.out.println("Enter vehicle Model: ");
-            String model2 = scanner.nextLine();
-            System.out.println("Enter vehicle Type of Vehicle: ");
-            String type2 = scanner.nextLine();
-            System.out.println("Enter vehicle Color: ");
-            String color2 = scanner.nextLine();
-            System.out.println("Enter vehicle Mileage: ");
-            int mileage2 = Integer.parseInt(scanner.nextLine());
-            System.out.println("Enter how much you paid for the vehicle: ");
-            double vehiclePrice2 = Double.parseDouble(scanner.nextLine());
-            System.out.println("Enter the expected ending value (50% of original price): ");
-            double expectedEndingValue2 = Double.parseDouble(scanner.nextLine());
-            System.out.println("Enter lease fee amount (7% of original price): ");
-            double leaseFee2 = Double.parseDouble(scanner.nextLine());
-
-            LeaseContract leaseContract1 = new LeaseContract();
-            System.out.println("This is your total price, enter this number next: " + leaseContract1.getTotalPrice());
-
-            System.out.println("Enter total price for the vehicle: ");
-            double totalPrice2 = Double.parseDouble(scanner.nextLine());
-            System.out.println("What's your monthly payment? (All loans are at 4.25% for 48 months if the price is $10,000 or more. Otherwise they are at 5.25% for 24 month): ");
-            double monthlyPayment2 = Double.parseDouble(scanner.nextLine());
-
             LeaseContract leaseContract = new LeaseContract();
-            LeaseContract.addLeaseContract(date2, name2, email2, vin2, year2, make2, model2, type2, color2, mileage2, vehiclePrice2, expectedEndingValue2, leaseFee2, totalPrice2, monthlyPayment2);
+            LeaseContract leaseContract1 = new LeaseContract();
+            System.out.println("Enter the date: ");
+            leaseContract.setDateOfContract(scanner.nextLine());
+            System.out.println("Enter your name: ");
+            leaseContract.setCustomerName(scanner.nextLine());
+            System.out.println("Enter your email: ");
+            leaseContract.setCustomerEmail(scanner.nextLine());
+            System.out.println("Enter vehicle VIN: ");
+            leaseContract.setVin(scanner.nextInt());
+            System.out.println("Enter vehicle Year: ");
+            leaseContract.setYear(scanner.nextInt());
+            scanner.nextLine();
+            System.out.println("Enter vehicle Make: ");
+            leaseContract.setMake(scanner.nextLine());
+            System.out.println("Enter vehicle Model: ");
+            leaseContract.setModel(scanner.nextLine());
+            System.out.println("Enter vehicle Type of Vehicle: ");
+            leaseContract.setVehicleType(scanner.nextLine());
+            System.out.println("Enter vehicle Color: ");
+            leaseContract.setColor(scanner.nextLine());
+            System.out.println("Enter vehicle Mileage: ");
+            leaseContract.setOdometer(scanner.nextInt());
+            System.out.println("Enter how much you paid for the vehicle: ");
+            leaseContract.setVehiclePrice(scanner.nextDouble());
+            System.out.println("Enter the expected ending value (50% of original price): ");
+            leaseContract.setExpectedEndingValue(scanner.nextDouble());
+            System.out.println("Enter lease fee amount (7% of original price): ");
+            leaseContract.setLeaseFee(scanner.nextDouble());
+            scanner.nextLine();
 
-            new ContractsFileManager().saveLeaseContract((List<LeaseContract>) leaseContract);
+            System.out.println(leaseContract.getTotalPrice());
+            System.out.println(leaseContract.getMonthlyPayment());
+
+            List<LeaseContract> contracts = new ArrayList<>();
+            contracts.add(leaseContract);
+            new ContractsFileManager().saveLeaseContract(contracts);
 
             System.out.println("Vehicle lease accepted!");
         }
