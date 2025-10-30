@@ -2,6 +2,7 @@ package com.pluralsight;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -29,6 +30,7 @@ public class UserInterface {
                 case 7 -> processGetAllVehiclesRequest();
                 case 8 -> processAddVehicleRequest();
                 case 9 -> processRemoveVehicleRequest();
+                case 10 -> processSellLeaseVehicleRequest();
                 case 99 -> System.out.println("Goodbye");
                 default -> System.out.println("Invalid option");
             }
@@ -51,6 +53,7 @@ public class UserInterface {
                 7 - List ALL vehicles
                 8 - Add a vehicle
                 9 - Remove a vehicle
+                10 - Sell/Lease a vehicle
                 99 - Quit
                 """);
     }
@@ -198,6 +201,115 @@ public class UserInterface {
             System.out.printf("%-6d %-6d %-10s %-10s %-8s %-8s %-10d $%-10.2f%n",
                     v.getVin(), v.getYear(), v.getMake(), v.getModel(),
                     v.getVehicleType(), v.getColor(), v.getOdometer(), v.getPrice());
+        }
+    }
+    public void processSellLeaseVehicleRequest() {
+        System.out.println("Do you want to sell or lease a vehicle?");
+        String sellOrLease = scanner.nextLine();
+        double salesTax = 0;
+        int recordingFee = 0;
+        int processingFee = 0;
+        boolean financeOption = false;
+        String date = null;
+        String name = null;
+        String email = null;
+        int vin = 0;
+        int year = 0;
+        String make = null;
+        String model = null;
+        String type = null;
+        String color = null;
+        int mileage = 0;
+        double vehiclePrice = 0;
+        double totalPrice = 0;
+        double monthlyPayment = 0;
+        SalesContract salesContract = new SalesContract();
+        SalesContract salesContract1 = new SalesContract();
+        if (sellOrLease.equalsIgnoreCase("sell")) {
+            System.out.println("Enter the date: ");
+            salesContract.setDateOfContract(scanner.nextLine());
+            System.out.println("Enter your name: ");
+            salesContract.setCustomerName(scanner.nextLine());
+            System.out.println("Enter your email: ");
+            salesContract.setCustomerEmail(scanner.nextLine());
+            System.out.println("Enter vehicle VIN: ");
+            salesContract.setVin(scanner.nextInt());
+            System.out.println("Enter vehicle Year: ");
+            salesContract.setYear(scanner.nextInt());
+            scanner.nextLine();
+            System.out.println("Enter vehicle Make: ");
+            salesContract.setMake(scanner.nextLine());
+            System.out.println("Enter vehicle Model: ");
+            salesContract.setModel(scanner.nextLine());
+            System.out.println("Enter vehicle Type of Vehicle: ");
+            salesContract.setVehicleType(scanner.nextLine());
+            System.out.println("Enter vehicle Color: ");
+            salesContract.setColor(scanner.nextLine());
+            System.out.println("Enter vehicle Mileage: ");
+            salesContract.setOdometer(scanner.nextInt());
+            System.out.println("Enter how much you paid for the vehicle: ");
+            salesContract.setVehiclePrice(scanner.nextDouble());
+            salesContract1.setVehiclePrice(vehiclePrice);
+            System.out.println("Enter sales tax info (5% or .05): ");
+            salesContract.setSalesTaxAmount(scanner.nextDouble());
+            System.out.println("Enter recording fee amount ($100): ");
+            salesContract.setRecordingFee(scanner.nextInt());
+            System.out.println("Enter processing fee amount ($295 for vehicles under $10,000 and $495 for all others): ");
+            salesContract.setProcessingFee(scanner.nextInt());
+            System.out.println("Are you financing the vehicle? (true/false): ");
+            salesContract.setFinanceOption(scanner.nextBoolean());
+            scanner.nextLine();
+
+            System.out.println(salesContract.getTotalPrice());
+            System.out.println(salesContract.getMonthlyPayment());
+
+            List<SalesContract> contracts = new ArrayList<>();
+            contracts.add(salesContract);
+            new ContractsFileManager().saveSalesContract(contracts);
+
+            System.out.println("Vehicle sale added successfully!");
+        } else {
+            System.out.println("Enter the date: ");
+            String date2 = scanner.nextLine();
+            System.out.println("Enter your name: ");
+            String name2 = scanner.nextLine();
+            System.out.println("Enter your email: ");
+            String email2 = scanner.nextLine();
+            System.out.println("Enter vehicle VIN: ");
+            int vin2 = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter vehicle Year: ");
+            int year2 = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter vehicle Make: ");
+            String make2 = scanner.nextLine();
+            System.out.println("Enter vehicle Model: ");
+            String model2 = scanner.nextLine();
+            System.out.println("Enter vehicle Type of Vehicle: ");
+            String type2 = scanner.nextLine();
+            System.out.println("Enter vehicle Color: ");
+            String color2 = scanner.nextLine();
+            System.out.println("Enter vehicle Mileage: ");
+            int mileage2 = Integer.parseInt(scanner.nextLine());
+            System.out.println("Enter how much you paid for the vehicle: ");
+            double vehiclePrice2 = Double.parseDouble(scanner.nextLine());
+            System.out.println("Enter the expected ending value (50% of original price): ");
+            double expectedEndingValue2 = Double.parseDouble(scanner.nextLine());
+            System.out.println("Enter lease fee amount (7% of original price): ");
+            double leaseFee2 = Double.parseDouble(scanner.nextLine());
+
+            LeaseContract leaseContract1 = new LeaseContract();
+            System.out.println("This is your total price, enter this number next: " + leaseContract1.getTotalPrice());
+
+            System.out.println("Enter total price for the vehicle: ");
+            double totalPrice2 = Double.parseDouble(scanner.nextLine());
+            System.out.println("What's your monthly payment? (All loans are at 4.25% for 48 months if the price is $10,000 or more. Otherwise they are at 5.25% for 24 month): ");
+            double monthlyPayment2 = Double.parseDouble(scanner.nextLine());
+
+            LeaseContract leaseContract = new LeaseContract();
+            LeaseContract.addLeaseContract(date2, name2, email2, vin2, year2, make2, model2, type2, color2, mileage2, vehiclePrice2, expectedEndingValue2, leaseFee2, totalPrice2, monthlyPayment2);
+
+            new ContractsFileManager().saveLeaseContract((List<LeaseContract>) leaseContract);
+
+            System.out.println("Vehicle lease accepted!");
         }
     }
 }
